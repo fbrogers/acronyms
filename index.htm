@@ -42,9 +42,6 @@
         </div>
         
         <div class="container site-content">
-            <h1>Acronyms</h1>
-            <hr>
-            
             <div v-for="acronym in filteredItems" class="card mb-3">
                 <div class="card-body">
                     <div class="h3">
@@ -193,8 +190,66 @@
                     title: 'Project Management Office',
                     summary: 'The UCF IT Project Management Office (PMO) is a team of professional Business Systems Analysts and Project Managers who work to ensure that projects and programs are successfully managed and delivered in an effective, repeatable, standardized way.',
                     url: 'https://it.ucf.edu/our-organization/strategy-and-planning/pmo/'
+                },
+                {
+                    acro: 'DNS',
+                    title: 'Domain Name System',
+                    summary: 'The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.',
+                    url: 'https://www.cloudflare.com/learning/dns/what-is-dns/'
+                },
+                {
+                    acro: 'MOU',
+                    title: 'Memorandum of Understanding',
+                    summary: 'A memorandum of understanding is an agreement between two or more parties outlined in a formal document. It is not legally binding but signals the willingness of the parties to move forward with a contract.',
+                    url: 'https://en.wikipedia.org/wiki/Memorandum_of_understanding'
+                },
+                {
+                    acro: 'SLA',
+                    title: 'Service-Level Agreement',
+                    summary: 'A service-level agreement (SLA) is a commitment between a service provider and a client. Particular aspects of the service – quality, availability, responsibilities – are agreed between the service provider and the service user.',
+                    url: 'https://en.wikipedia.org/wiki/Service-level_agreement'
+                },
+                {
+                    acro: 'CSAT',
+                    title: 'Customer Satisfaction Score',
+                    summary: 'CSAT is short for ‘customer satisfaction’ and is a key performance indicator that tracks how satisfied customers are with your organisation’s products and/or services.',
+                    url: 'https://www.qualtrics.com/uk/experience-management/customer/what-is-csat/'
+                },
+                {
+                    acro: 'FTE',
+                    title: 'Full Time Equivalent',
+                    summary: 'This is shorthand for the percentages/components that make up a faculty or staff member\'s job. FTE always equals 1.0 (example: research 0.6, teaching 0.3, service 0.1).'
+                },
+                {
+                    acro: 'NID',
+                    title: 'Network ID',
+                    summary: 'This is the ID number that is used to sign in to UCF computer systems and your UCF email. NIDs are often (but not always) composed of the first two letters of your first name and six randomly assigned numbers.',
+                    url: 'https://infosec.ucf.edu/identity-management/identity-details/'
+                },
+                {
+                    acro: 'SDES',
+                    title: 'Student Development and Enrollment Services',
+                    summary: 'One of the largest units on campus, it is comprised of many student-facing programs and services aimed at student success and retention.',
+                    url: 'https://www.sdes.ucf.edu/'
+                },
+                {
+                    acro: 'STEM',
+                    title: 'Science, Technology, Engineering, and Mathematics',
+                    summary: 'These disciplines are often referred to in the aggregate, and many programs are customized for STEM audiences.',
+                    url: 'https://stem.ucf.edu/'
+                },
+                {
+                    acro: 'UCFID',
+                    title: '',
+                    summary: 'When you first join the UCF community, the UCF system generates your UCFID (sometimes called EMPLID). Your UCFID is a unique random number that serves as your primary identification within the UCF system. Your UCFID links your student, staff, or faculty records which contains personal information as well as grades, schedule, employment, payroll and other data. You cannot use your UCFID to sign on to any system at UCF.',
+                    url: 'https://infosec.ucf.edu/identity-management/identity-details/'
+                },
+                {
+                    acro: 'VPN',
+                    title: 'Virtual Private Network',
+                    summary: 'Provides a secure connection between your local network and a remote network. UCF offers a VPN for employees and students who need to be able to access resources from a remote location through software known as Cisco Anyconnect. When running the Cisco Anyconnect client, you will be able to access resources within the UCF Campus as if you were onsite.',
+                    url: 'https://ucf.service-now.com/ucfit?id=kb_article&sys_id=ff89f4764f45e200be64f0318110c763'
                 }
-
                 ]
             },
             computed: {
