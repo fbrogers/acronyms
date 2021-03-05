@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acronym Search | UCF</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.it.ucf.edu/minerva/1.0.0/css/minerva.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="shortcut icon" href="https://cdn.it.ucf.edu/minerva/1.0.0/images/favicon_black.png" />
+    <link rel="apple-touch-icon" href="https://cdn.it.ucf.edu/minerva/1.0.0/images/apple-touch-icon.png" />
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to Main Content</a>
+    
+    <header class="site-header image">
+        <div class="container">
+            <div class="header-title-block">
+                <span class="header-title">
+                    <a href="#">Acronym Search</a>
+                </span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="header-subtitle-block">
+                <span class="header-subtitle">
+                    <a href="https://it.ucf.edu/">UCF Information Technology</a>
+                </span>
+            </div>
+        </div>
+    </header>
+    
+    <div id="app-1">        
+        <div class="bg-warning mb-4">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-8 mx-auto" style="font-size: 150%">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search Acronyms" spellcheck="false" tabindex="-1" v-model="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container site-content">
+            <h1>Acronyms</h1>
+            <hr>
+            
+            <div v-for="acronym in filteredItems" class="card mb-3">
+                <div class="card-body">
+                    <div class="h3">
+                        {{acronym.acro}}: {{acronym.title}}
+                    </div>
+                    <p v-if="acronym.url">
+                        <a :href="acronym.url" class="external">{{acronym.url}}</a>
+                    </p>
+                    <p v-if="acronym.summary">
+                        {{acronym.summary}}
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="pb-3">
+            
+            <p>
+                This curated list is maintained by <i>UCF IT Custom Solutions</i> in an effort to spread awareness. If you know of a UCF acronym that should be on this list, please <a href="https://ucf.service-now.com/ucfit?id=sc_cat_item&sys_id=36b6ae1f4f5e4740be64f0318110c7e0" class="external">let us know!</a>
+            </p>    
+        </div>
+    </div>
+    
+    <div class="jumbotron jumbotron-fluid bg-black mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg mb-5 mb-lg-0">
+                    <section id="student-resources">
+                        <div id="student-resources-heading" class="h6 heading-underline mb-3 mb-md-4 text-white text-uppercase">
+                            Student Resources
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="py-1"><a class="text-white" href="https://calendar.ucf.edu/">Academic Calendar</a></li>
+                            <li class="py-1"><a class="text-white" href="https://www.ucf.edu/admissions/">Admissions</a></li>
+                            <li class="py-1"><a class="text-white" href="https://finaid.ucf.edu/">Financial Aid</a></li>
+                            <li class="py-1"><a class="text-white" href="https://www.studentaccounts.ucf.edu/">Student Account Services</a></li>
+                            <li class="py-1"><a class="text-white" href="https://ucf.service-now.com/ucfit?id=knowledge">FAQ/Knowledge Base</a></li>
+                            <li class="py-1"><a class="text-white" href="https://career.ucf.edu/">Career Services</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-6 col-lg mb-5 mb-lg-0">
+                    <section aria-labelledby="Faculty-resources-heading" id="Faculty-resources">
+                        <div id="Faculty-resources-heading" class="h6 heading-underline mb-3 mb-md-4 text-white text-uppercase">
+                            Faculty Resources
+                        </div>
+                        <ul class="nav d-flex flex-column align-items-start">
+                            <li class="py-1"><a class="text-white" href="https://hr.ucf.edu/">Human Resources</a></li>
+                            <li class="py-1"><a class="text-white" href="https://facultyexcellence.ucf.edu/">Faculty Excellence</a></li>
+                            <li class="py-1"><a class="text-white" href="https://fctl.ucf.edu/">FCTL</a></li>
+                            <li class="py-1"><a class="text-white" href="https://cdl.ucf.edu/teach/">Webcourses Support</a></li>
+                            <li class="py-1"><a class="text-white" href="https://it.ucf.edu/help/faculty-and-staff-support/">Service Desk</a></li>
+                            <li class="py-1"><a class="text-white" href="https://www.ucf.edu/phonebook/">Phonebook</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-6 col-lg">
+                    <section aria-labelledby="staff-resources-heading" id="staff-resources">
+                        <div id="staff-resources-heading" class="h6 heading-underline mb-3 mb-md-4 text-white text-uppercase">
+                            Staff Resources
+                        </div>
+                        <ul class="nav d-flex flex-column align-items-start">
+                            <li class="py-1"><a class="text-white" href="https://hr.ucf.edu/current-employees/">Human Resources</a></li>
+                            <li class="py-1"><a class="text-white" href="https://ucf.cobblestonesystems.com/core/">Contract Management (Cobblestone)</a></li>
+                            <li class="py-1"><a class="text-white" href="https://infosec.ucf.edu/">Information Security</a></li>
+                            <li class="py-1"><a class="text-white" href="https://compliance.ucf.edu/">Compliance</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- footers -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <p class="mb-0">
+                        Designed, Developed and Supported by
+                    </p>
+                    <h2 class="h5 mb-3">
+                        UCF IT App<span class="d-lg-inline d-md-none">lication</span> Development
+                    </h2>
+                    <p>
+                        &copy; <a href="https://www.ucf.edu/">University of Central Florida</a> |
+                        <b><a href="https://ucf.service-now.com/ucfit?id=sc_cat_item&sys_id=ae7581c4dbb5a20096b0fb37bf961954" class="external">Report Issue</a></b>
+                    </p>
+                </div>
+                <div class="col-md-6 col-12 text-md-right text-sm-left">
+                    <h2 class="h5 mb-md-3 mb-sm-0">
+                        Acronyms
+                    </h2>
+                    <p>
+                        Current Version: <b>v</b><b>1.0.0.0-hackday</b><br>
+                        Current User: <b>NET\jcrogers</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.it.ucf.edu/minerva/1.0.0/js/minerva.js"></script>
+    <script src="https://cdn.it.ucf.edu/minerva/1.0.0/js/internal-header.js"></script>
+    
+    <script>
+        var app1 = new Vue({
+            el: '#app-1',
+            
+            data: {
+                search: '',
+                acronyms: [
+                {
+                    acro: 'ASFBO',
+                    title: 'Activity and Service Fee Business Office',
+                    summary: 'The Activity and Service Fee Business Office services the accounting, personnel, and/or purchasing needs of Activity-&-Service-Fee-funded agencies. In addition, we are a support office for Registered Student Organizations (RSOs) and UCF students that are allocated ASF funds by the Student Government Association (SGA). The current Activity & Service Fee is $11.67 per credit hour.',
+                    url: 'https://asf.sdes.ucf.edu/'
+                },
+                {
+                    acro: 'ODBC',
+                    title: 'Open Database Connectivity',
+                    summary: 'A widely accepted application programming interface (API) for database access. ODBC is designed for maximum interoperability - that is, the ability of a single application to access different database management systems (DBMSs) with the same source code.',
+                    url: 'https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-overview?view=sql-server-ver15'
+                },
+                {
+                    acro: 'DSO',
+                    title: 'DataSite Orlando',
+                    summary: 'Leadership in UCF IT spent seven months working together on a strategy for the next generation data center.  The output of that effort was a document outlining new technologies, methods and processes for compute, storage and network.  Additional strategic conversations as that team was completing its work focused on the deficiencies in the on campus hosting space.  It was concluded that given the efficiencies of the new platforms it would be better to no longer rely on the on campus data center spaces as primary hosting space.  A decision was made to move all data center infrastructure to DataSite Orlando (DSO), a tier 3 commercial hosting space.',
+                    url: 'https://it.ucf.edu/dso-migration-project/'
+                },
+                {
+                    acro: 'IKM',
+                    title: 'Institutional Knowledge Management',
+                    summary: 'IKM is the official source of UCF institutional data. IKM provides accurate, insightful, and actionable information to the university and the public. Areas of focus include supporting executive and operational decision-making, preparing and submitting state and federal reports, responding to national surveys, and collecting and interpreting data in response to internal and external data requests.',
+                    url: 'https://ikm.ucf.edu/about/about-ikm/'
+                },
+                {
+                    acro: 'A&P',
+                    title: 'Administrative & Professional'
+                },
+                {
+                    acro: 'PMO',
+                    title: 'Project Management Office',
+                    summary: 'The UCF IT Project Management Office (PMO) is a team of professional Business Systems Analysts and Project Managers who work to ensure that projects and programs are successfully managed and delivered in an effective, repeatable, standardized way.',
+                    url: 'https://it.ucf.edu/our-organization/strategy-and-planning/pmo/'
+                }
+
+                ]
+            },
+            computed: {
+                filteredItems: function() {
+                    return this.acronyms
+                        .filter(item => { return item.acro.toLowerCase().indexOf(this.search.toLowerCase()) > -1 })
+                        .sort((a, b) => (a.acro > b.acro) ? 1 : -1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
