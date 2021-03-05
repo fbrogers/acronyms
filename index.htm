@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acronym Search | UCF</title> 
+    <title>Acronyms | UCF</title> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.it.ucf.edu/minerva/1.0.0/css/minerva.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="header-title-block">
                 <span class="header-title">
-                    <a href="#">Acronym Search</a>
+                    <a href="#">UCF Acronyms</a>
                 </span>
             </div>
             <div class="clearfix"></div>
@@ -35,7 +35,7 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <input type="text" class="form-control form-control-lg" placeholder="Search Acronyms" spellcheck="false" tabindex="-1" v-model="search">
+                        <input v-model="search" type="text" class="form-control form-control-lg" placeholder="Search Acronyms" spellcheck="false">
                     </div>
                 </div>
             </div>
@@ -45,7 +45,8 @@
             <div v-for="acronym in filteredItems" class="card mb-3">
                 <div class="card-body">
                     <div class="h3">
-                        {{acronym.acro}}: {{acronym.title}}
+                        {{acronym.acro}}
+                        <span v-if="acronym.title">: {{acronym.title}}</span>
                     </div>
                     <p v-if="acronym.url">
                         <a :href="acronym.url" class="external">{{acronym.url}}</a>
@@ -126,7 +127,7 @@
                 </div>
                 <div class="col-md-6 col-12 text-md-right text-sm-left">
                     <h2 class="h5 mb-md-3 mb-sm-0">
-                        Acronyms
+                        UCF Acronyms
                     </h2>
                     <p>
                         Current Version: <b>v</b><b>1.0.0.0-hackday</b><br>
@@ -243,6 +244,18 @@
                     title: 'Virtual Private Network',
                     summary: 'Provides a secure connection between your local network and a remote network. UCF offers a VPN for employees and students who need to be able to access resources from a remote location through software known as Cisco Anyconnect. When running the Cisco Anyconnect client, you will be able to access resources within the UCF Campus as if you were onsite.',
                     url: 'https://ucf.service-now.com/ucfit?id=kb_article&sys_id=ff89f4764f45e200be64f0318110c763'
+                },
+                {
+                    acro: 'APIM',
+                    title: 'Academic Program Inventory Master',
+                    summary: 'A consistent, unified source for Degree Program information at UCF. The custom software allows colleges and departments to update the data, and an API is available to integrate the data.',
+                    url: 'https://apim.ikm.ucf.edu/'
+                },
+                {
+                    acro: 'APIM',
+                    title: 'Azure API Management',
+                    summary: 'API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.',
+                    url: 'https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts'
                 }
                 ]
             },
