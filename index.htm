@@ -45,8 +45,7 @@
             <div v-for="acronym in filteredItems" class="card mb-3">
                 <div class="card-body">
                     <div class="h3">
-                        {{acronym.acro}}
-                        <span v-if="acronym.title">: {{acronym.title}}</span>
+                        {{acronym.acro}}<span v-if="acronym.title">: {{acronym.title}}</span>
                     </div>
                     <p v-if="acronym.url">
                         <a :href="acronym.url" class="external">{{acronym.url}}</a>
@@ -256,6 +255,12 @@
                     title: 'Azure API Management',
                     summary: 'API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.',
                     url: 'https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts'
+                },
+                {
+                    acro: 'LCAP',
+                    title: 'Low-Code Application Platform',
+                    summary: 'An Enterprise Low-code application platform (LCAP) provides rapid application development and deployment using low-code and no-code techniques such as declarative, model-driven application design and development together with the simplified one-button deployment of applications. An LCAP typically creates metadata and interprets that metadata at runtime and abstracts the underlying server infrastructure for ease of use; many also allow optional procedural programming extensions.',
+                    url: 'https://www.gartner.com/reviews/market/enterprise-low-code-application-platform'
                 }
                 ]
             },
